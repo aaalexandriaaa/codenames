@@ -49,11 +49,10 @@ Implementation of a fair, equitable, and just website that:
 
 ## 6. Stretch Goals: 
 * Full compliance with [WCAG](https://www.w3.org/WAI/WCAG21/quickref/)
-* 
-* acessibility things? (should never be stretch goals, but i'm v. limited in time) (like push a button to see the red/blue/white/black cards in a list - making sure that the words on the original game play board can be read or not read based on whether or not they've been chosen - having the number of cards left in a screen reader readable format.)
 * Implement spymaster & code guesser pages that load to two different so that everyone can play on their own devices.
-* statistics based on what cards you have left (specifically: "you have a 25% chance of choosing the instant death card; you have a 10% chance of choosing a neutral card.)# codenames
-* impletment Codenames: Duets
+* Statistics based on what cards are left on the board. (specifically: "you have a 25% chance of choosing the instant death card; you have a 10% chance of choosing a neutral card.)
+* Implementation of Codenames: Duets - a 2 player varient of Codenames.
+* Allowing users to upload their own dictionary of words used for the game for a customizable experience.
 
 ## 7. Pseudocode
 1. variables:
