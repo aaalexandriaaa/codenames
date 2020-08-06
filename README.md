@@ -15,7 +15,7 @@ CODENAMES JAVASCRIPT IMPLEMENTATION
   - [8. Attributions](#8-attributions)
 
 ## 0. Website Link
-[Play Codenames!](JScodenames.surge.sh)
+[Play Codenames!](www.jscodenames.surge.sh)
 
 ## 1. Objective
 Implementation of a fair, equitable, and just website that: 
