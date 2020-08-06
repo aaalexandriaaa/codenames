@@ -19,7 +19,7 @@ CODENAMES JAVASCRIPT IMPLEMENTATION
 
 ## 1. Objective
 Implementation of a fair, equitable, and just website that: 
-   1. Faithfully recreates the gameplay logic of Vlaada Chvátil's 2015 card game Codenames
+   1. faithfully recreates the gameplay logic of Vlaada Chvátil's 2015 card game Codenames
    2. visually recreates a stylized representation of the game board that is accessible to users who:
       1. are visually impaired
       2. have processing deficits
@@ -31,12 +31,12 @@ Implementation of a fair, equitable, and just website that:
 3. CSS
    
 ## 3. Wireframes
-[View wireframes here](https://www.canva.com/design/DAEEDmlvdQE/XlOWR4xfqbIZHaSOLQMzwg/view?utm_content=DAEEDmlvdQE&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
+[View wireframes here.](https://www.canva.com/design/DAEEDmlvdQE/XlOWR4xfqbIZHaSOLQMzwg/view?utm_content=DAEEDmlvdQE&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
 
 ## 4. User Stories
-   The Jemisin family has gathered for an evening of board games. As a quick games warm up, the Smith family has decided they'd like to play Codenames. Unfortunately, Nora has left her copy of Codenames at home. Fortunately, she knows of a website where she can pull up a digital version of the game. 
+   The Jemisin family has gathered for an evening of board games, and they have decided to play Codenames. Unfortunately, Nora has left her copy of Codenames at home. Fortunately, she knows of a website where she can pull up a digital version of the game. 
 
-   Zenobia and her courtiers love the game Codenames. What they don't love is setting up the 5x5 grid of words where they can see it. Zenobia's favorite courtier has come across a website where the game set up is completed for them. Now Zenobia doesn't have to patiently wait for the board to be set up; she can play any time she wants! 
+   Zenobia and her courtiers love the game Codenames. What they don't love is setting up the 5x5 grid of words so that everyone can see. Zenobia's favorite courtier has come across a website where the game set up is completed for them. Now Zenobia doesn't have to patiently wait for the board to be set up; she can play any time she wants! 
 
 ## 5. User Experience
 *  The users will navigate to the game page and will see an image similar to first wireframe with text letting them know whose turn it is (e.g., Red Team, input your clue!).
