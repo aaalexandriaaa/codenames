@@ -19,10 +19,11 @@ CODENAMES JAVASCRIPT IMPLEMENTATION
 
 ## 1. Objective
 Implementation of a fair, equitable, and just website that: 
-   1. faithfully recreates the gameplay logic of Vlaada Chvátil's 2015 card game Codenames
+   1. faithfully recreates the gameplay logic of Vlaada Chvátil's 2015 card game Codenames.
    2. visually recreates a stylized representation of the game board that is accessible to users who:
       1. are visually impaired
-      2. have processing deficits
+      2. have processing deficits.
+   3. is designed from the ground up with  data-oriented design philosophy.
    
 
 ## 2. Technologies Used

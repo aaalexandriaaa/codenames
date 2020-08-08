@@ -1,0 +1,20 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    /* grid-template-columns: gives me exactly 5 columns */
+    grid-gap: 1rem;
+    align-items: center;
+  }
+  .grid > div {
+    background: #EDE7F6;
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+  body {
+    margin: 2rem;
+    font: 12px system-ui;
+    font-stretch: expanded;
+  }
+  div {
+      text-align: center;
+  }
