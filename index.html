@@ -11,50 +11,58 @@
 <body>
     <h1>CODENAMES COMING SOON.</h1>
 <!-- JScodenames.surge.sh -->
-    <div class="grid">
-        <div id = '0' ></div>
-        <div id = '1' ></div>
-        <div id = '2' ></div>
-        <div id = '3' ></div>
-        <div id = '4' ></div>
-        <div id = '5' ></div>
-        <div id = '6' ></div>
-        <div id = '7' ></div>
-        <div id = '8' ></div>
-        <div id = '9' ></div>
-        <div id = '10' ></div>
-        <div id = '11' ></div>
-        <div id = '12' ></div>
-        <div id = '13' ></div>
-        <div id = '14' ></div>
-        <div id = '15' ></div>
-        <div id = '16' ></div>
-        <div id = '17' ></div>
-        <div id = '18' ></div>
-        <div id = '19' ></div>
-        <div id = '20' ></div>
-        <div id = '21' ></div>
-        <div id = '22' ></div>
-        <div id = '23' ></div>
-        <div id = '24' ></div>
-    </div>
-    
-    <div class="input-group mb-3" id = "clue">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-default">Clue</span>
+    <div class = "container">
+        <div id = "redBoard">
+            <!-- <p style="text-align:center;">Yo, it's Red's side.</p> -->
         </div>
-        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-    </div>
-    
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-default">Number</span>
+        <div id = "boardAndInputs">
+            <div class="grid">
+                <div id = '0' ></div>
+                <div id = '1' ></div>
+                <div id = '2' ></div>
+                <div id = '3' ></div>
+                <div id = '4' ></div>
+                <div id = '5' ></div>
+                <div id = '6' ></div>
+                <div id = '7' ></div>
+                <div id = '8' ></div>
+                <div id = '9' ></div>
+                <div id = '10' ></div>
+                <div id = '11' ></div>
+                <div id = '12' ></div>
+                <div id = '13' ></div>
+                <div id = '14' ></div>
+                <div id = '15' ></div>
+                <div id = '16' ></div>
+                <div id = '17' ></div>
+                <div id = '18' ></div>
+                <div id = '19' ></div>
+                <div id = '20' ></div>
+                <div id = '21' ></div>
+                <div id = '22' ></div>
+                <div id = '23' ></div>
+                <div id = '24' ></div>
+            </div>
+        
+            <div class="input-group mb-3" id = "clue">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Clue</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+        
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Number</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id = "num">
+                <input class="btn btn-primary" type="submit" value="Submit" id = "numSubmit">
+            </div>
         </div>
-        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id = "num">
-        <input class="btn btn-primary" type="submit" value="Submit" id = "numSubmit">
+        <div id = "blueBoard">
+            <!-- <p style="text-align:center;">Yo, it's Blue's side.</p> -->
+        </div>
     </div>
-    
-    
 
     
     <!-- JS, Popper.js, and jQuery -->
