@@ -64,11 +64,13 @@ function tries(){
         guesses = 1;
     } else {
         guesses = parseInt(numEl.value) + 1;
+        document.getElementById("guessInfo").innerHTML = `<h1>${control} team, you have ${guesses} ${guesses > 1? "guesses" : "guess"}.</h1>`
     }
 };
 
 // Initialization Function
 function init(){
+    document.getElementById("guessInfo").innerHTML = `<h1>${control} team: </br> Please input a one-word clue and number of guesses.</h1>`
     words.forEach((elem, idx) => {
         document.getElementById(idx).innerHTML = elem;
     })
@@ -77,10 +79,10 @@ function init(){
 // Player Click Function
 function playerClick(evt){
     if (board[evt.target.id] === board[evt.target.id].toUpperCase()){
-        document.getElementById("guessInfo").innerHTML = `Please click a valid card.`
+        document.getElementById("guessInfo").innerHTML = `<h1>Please click a valid card.</h1>`
         return
     } else if (guesses < 1){
-        document.getElementById("guessInfo").innerHTML = `Please input a valid guess.`
+        document.getElementById("guessInfo").innerHTML = `<h1>Please input a valid guess.</h1>`
         return
     }
     console.log(evt.target.id, board[evt.target.id]) // use document.addClassName or whatever to add a class to the card (class = red or class = blue or neutral) that will HIDE the word, and then put the "spy card" over it. 
@@ -92,23 +94,23 @@ function playerClick(evt){
             board[evt.target.id] = board[evt.target.id].toUpperCase() // set that element to upper case 
             if (board.some(elem => elem === control)){ // if there are still lower case control variables, the game continues, control continues their turn, and the guesses decrement
                 guesses--
-                document.getElementById("guessInfo").innerHTML = `You have ${guesses} ${guesses > 1? "guesses" : "guess"} left`
+                document.getElementById("guessInfo").innerHTML = `<h1>You have ${guesses} ${guesses > 1? "guesses" : "guess"} left</h1>`
                 if (guesses < 1){
                     numEl.value = "";
                     control = flipVariable(control);
-                    document.getElementById("guessInfo").innerHTML = `It's ${control}'s turn!`
+                    document.getElementById("guessInfo").innerHTML = `<h1>It's ${control}'s turn!</h1>`
                 }
             } else { // if there are no more lower case control variables, the game is over. 
                 console.log('you win') // the game is over, you win.
-                document.getElementById("guessInfo").innerHTML = `${control} wins!`
+                document.getElementById("guessInfo").innerHTML = `<h1>${control} wins!</h1>`
             }
         } else { // player chooses opponent's or neutral card
             board[evt.target.id] = board[evt.target.id].toUpperCase() // set that element to upper case 
             guesses = -1; //reset guess count
             control = flipVariable(control);
-            document.getElementById("guessInfo").innerHTML = `It's ${control}'s turn`
+            document.getElementById("guessInfo").innerHTML = `<h1>It's ${control}'s turn</h1>`
             if (!board.some(elem => elem === control)){
-                console.log('Opponent wins!')
+                document.getElementById("guessInfo").innerHTML = `<h1>${flipVariable(control)} wins!!</h1>`
              }
         } 
     render();
