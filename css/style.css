@@ -1,23 +1,29 @@
 .grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); 
-    /* grid-template-columns: gives me exactly 5 columns */
-    grid-gap: 1rem;
-    align-items: center;
-  }
-  .grid > div {
-    background: #EDE7F6;
-    padding: 1.5rem;
-    border-radius: 1rem;
-  }
-  body {
-    margin: 2rem;
-    font: 12px system-ui;
-    font-stretch: expanded;
-  }
-  div {
-      text-align: center;
-  }
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); 
+  /* grid-template-columns: gives me exactly 5 columns */
+  grid-gap: 1rem;
+  align-items: center;
+}
+.grid > div {
+  background: #EDE7F6;
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+body {
+  margin: 2rem;
+  font: 12px system-ui;
+  font-stretch: expanded;
+}
+div {
+    text-align: center;
+}
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  
+}
 
 
   /* 2 red 2 blue 2 neutral 1 assassin groups for cards so that if it's R i can hide the word & RED IT OUT and if it's r I can use the red background but still show the word. */
