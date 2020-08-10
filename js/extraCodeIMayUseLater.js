@@ -10,7 +10,7 @@ let board = [[], [], [], [], []];
 let turn = 1;
 let killCard = output[1[1]]; // maybe have the 
 
-
+// document.getElementById("guessInfo").innerHTML = "your turn is over."
 
 // Homepage View
 
