@@ -66,3 +66,24 @@ let killCard = output[1[1]]; // maybe have the
 //   }, {}) //gives the output {'mark john: [], "nikita smith": []'}
 // //console.log('the output', output)
 // // this gives us an array of strings, so it breaks up the information into each 
+
+
+
+
+// Ben & David's lesson on importing functions
+// main.js:
+// const math = require ('./utils')
+// math.addNums(1, 4)
+// math.eatTaco()
+// 10:44
+// utils.js:
+// function addNums(a, b){
+//     return console.log(a + b);
+// }
+// function eatTaco(){
+//     return console.log("YUMMYTACO")
+// }
+// module.exports = {
+//     addNums,
+//     eatTaco
+// }
