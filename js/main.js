@@ -60,7 +60,11 @@ function teamAssignment(size){
 
 // How many tries a player has before turn is flipped
 function tries(){
-    guesses = parseInt(numEl.value) + 1;
+    if (numEl.value === 0){
+        guesses = 1;
+    } else {
+        guesses = parseInt(numEl.value) + 1;
+    }
 };
 
 // Initialization Function
