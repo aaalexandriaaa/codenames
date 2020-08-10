@@ -77,34 +77,36 @@ function init(){
 // Player Click Function
 function playerClick(evt){
     if (board[evt.target.id] === board[evt.target.id].toUpperCase()){
-        console.log('invalid choice')
+        document.getElementById("guessInfo").innerHTML = `Please click a valid card.`
         return
     } else if (guesses < 1){
-        console.log('please input a guess')
+        document.getElementById("guessInfo").innerHTML = `Please input a valid guess.`
         return
     }
-    console.log(evt.target.id, board[evt.target.id]) // logs: 16 b    // use document.addClassName or whatever to add a class to the card (class = red or class = blue or neutral) that will HIDE the word, and then put the "spy card" over it. 
+    console.log(evt.target.id, board[evt.target.id]) // use document.addClassName or whatever to add a class to the card (class = red or class = blue or neutral) that will HIDE the word, and then put the "spy card" over it. 
         if (board[evt.target.id] === 'a'){
             assassino();
             // player has chosen Assassin card, and the game is over. run assassino function
+            // pop up a new modal with YOU LOST TOO BAD.
         } else if (board[evt.target.id] === control){ // player chooses their card
             board[evt.target.id] = board[evt.target.id].toUpperCase() // set that element to upper case 
             if (board.some(elem => elem === control)){ // if there are still lower case control variables, the game continues, control continues their turn, and the guesses decrement
-                console.log('keep playing')
                 guesses--
+                document.getElementById("guessInfo").innerHTML = `You have ${guesses} ${guesses > 1? "guesses" : "guess"} left`
                 if (guesses < 1){
-                    console.log("your turn is over.")
                     numEl.value = "";
                     control = flipVariable(control);
+                    document.getElementById("guessInfo").innerHTML = `It's ${control}'s turn!`
                 }
-                console.log('you have ' + guesses + ' left')
             } else { // if there are no more lower case control variables, the game is over. 
                 console.log('you win') // the game is over, you win.
+                document.getElementById("guessInfo").innerHTML = `${control} wins!`
             }
         } else { // player chooses opponent's or neutral card
             board[evt.target.id] = board[evt.target.id].toUpperCase() // set that element to upper case 
             guesses = -1; //reset guess count
             control = flipVariable(control);
+            document.getElementById("guessInfo").innerHTML = `It's ${control}'s turn`
             if (!board.some(elem => elem === control)){
                 console.log('Opponent wins!')
              }
