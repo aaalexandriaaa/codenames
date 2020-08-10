@@ -1,3 +1,12 @@
+/* 3 box container with Red info, Board, Blue info  */
+.container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 8fr 1fr;
+  grid-gap: 1rem;
+  align-items: center;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr); 
@@ -5,6 +14,7 @@
   grid-gap: 1rem;
   align-items: center;
 }
+
 .grid > div {
   background: #EDE7F6;
   padding: 1.5rem;
@@ -17,12 +27,6 @@ body {
 }
 div {
     text-align: center;
-}
-.container {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  
 }
 
 
