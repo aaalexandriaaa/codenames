@@ -1,12 +1,23 @@
+/* whole page */
+body {
+  margin: 2rem;
+  font: 12px system-ui;
+  font-stretch: expanded;
+  background: url("https://images.pexels.com/photos/1323712/pexels-photo-1323712.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+  /* https://www.pexels.com/photo/marble-surface-wall-white-1323712/ */
+}
+div {
+  text-align: center;
+}
 /* 3 box container with Red info, Board, Blue info  */
 .container {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: 1fr 8fr 1fr;
+  grid-template-columns: 1fr 6fr 1fr;
   grid-gap: 1rem;
   align-items: center;
 }
-
+/* 5x5 Card Placement */
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr); 
@@ -14,20 +25,42 @@
   grid-gap: 1rem;
   align-items: center;
 }
-
+/* Individual Cards */
 .grid > div {
   background: #EDE7F6;
   padding: 1.5rem;
   border-radius: 1rem;
 }
-body {
-  margin: 2rem;
-  font: 12px system-ui;
-  font-stretch: expanded;
+/* Right hand side player information */
+#redBoard {
+  justify-self: stretch;
+  width: auto;
+  height: 100%;
 }
-div {
-    text-align: center;
+/* Left hand side player information */
+#blueBoard {
+  width: 100%;
+  height: 100%;
 }
+#r {
+
+}
+#b {
+
+}
+#n {
+
+}
+#R {
+
+}
+#B {
+
+}
+#N {
+
+}
+
 
 
   /* 2 red 2 blue 2 neutral 1 assassin groups for cards so that if it's R i can hide the word & RED IT OUT and if it's r I can use the red background but still show the word. */
