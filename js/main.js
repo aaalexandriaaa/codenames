@@ -90,6 +90,7 @@ function playerClick(evt){
                 guesses--
                 if (guesses < 1){
                     console.log("your turn is over.")
+                    numEl.value = "";
                     control = flipVariable(control);
                 }
                 console.log('you have ' + guesses + ' left')
