@@ -10,11 +10,14 @@
 </head>
 <body>
     <h1>CODENAMES COMING SOON.</h1>
+    <!-- https://fonts.google.com/specimen/Orbitron -->
 <!-- JScodenames.surge.sh -->
 <!-- just run surge in terminal to deploy -->
     <div class = "container">
         <div id = "redBoard">
-            <h4 style="text-align:center;">Yo, it's Red's side.</h4>
+            <h4 style="text-align:center;" id="redTitle">Red Team</h4>
+            <p id="redClues">Red Team Clues<p>
+                <p id="redList"></p>
         </div>
         <div id = "boardAndInputs">
             <div class="grid">
@@ -47,11 +50,11 @@
 
             <div id = "guessInfo"></div>
         
-            <div class="input-group mb-3" id = "clue">
+            <div class="input-group mb-3">
                 <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">Clue</span>
                 </div>
-                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id='clue'>
             </div>
         
             <div class="input-group mb-3">
@@ -64,11 +67,15 @@
             <div>
                 <input class="btn btn-primary" type="submit" value="Submit" id = "numSubmit">
                 <input class="btn btn-primary" type="submit" value = "Pass Turn" id = "pass">
-                <input class="btn btn-primary" type="submit" value = "Spymaster" id = "Spymaster">
+            </div>
+            <div>
+                <input class="btn btn-dark" type="submit" value = "Spymaster" id = "Spymaster">
             </div>
         </div>
         <div id = "blueBoard">
-            <h4 style="text-align:center;">Yo, it's Blue's side.</h4>
+            <h4 style="text-align:center;" id="blueTitle">Blue Team</h4>
+            <p id="blueClues">Blue Team Clues<p>
+                <p id="blueList"></p>
         </div>
     </div>
 
