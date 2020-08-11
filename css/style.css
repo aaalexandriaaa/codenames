@@ -1,4 +1,9 @@
 /* whole page */
+html, body {
+  height: 100%;
+  font-family: helvetica;
+  margin: 0;
+}
 body {
   margin: 2rem;
   font: 12px system-ui;
@@ -13,9 +18,10 @@ div {
 .container {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-columns: 1fr 5fr 1fr;
   grid-gap: 1rem;
   align-items: center;
+  max-width: 1800px;
 }
 /* 5x5 Card Placement */
 .grid {
@@ -41,6 +47,8 @@ div {
 #blueBoard {
   width: 100%;
   height: 100%;
+  background: cornflowerblue;
+  
 }
 #r {
 
