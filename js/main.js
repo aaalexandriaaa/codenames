@@ -12,6 +12,7 @@ let cardsTried = 0;
 const gridEls = document.getElementsByClassName("grid")[0];
 const squares = gridEls.children;
 const numEl = document.getElementById("num"); 
+const clueEl = document.getElementById("clue"); 
 const submitEl = document.getElementById("numSubmit");
 const passEl = document.getElementById("pass")
 
@@ -21,7 +22,7 @@ for (let index = 0; index < squares.length; index++) {
     square.onclick = playerClick;
 }
 
-submitEl.addEventListener('click', tries);
+submitEl.addEventListener('click', clueInfo);
 passEl.addEventListener('click', passTurn);
 
 /*------FUNCTIONS, FUNC YEAH------*/
@@ -65,12 +66,13 @@ function teamAssignment(size){
 }
 
 // How many tries a player has before turn is flipped
-function tries(){
+function clueInfo(){
     console.log(numEl.value)
-    cardsTried = 0;
+    console.log(clueEl.value)
     if (numEl.value >= 0){
         guesses = parseInt(numEl.value) + 1;
-        document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>you have ${guesses} ${guesses > 1? "guesses" : "guess"}.</h2>`
+        document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>you have ${guesses} ${guesses > 1? "guesses" : "guess"}.</h2>`;
+        document.getElementById(`${control === 'r'? "redList" : "blueList"}`).innerHTML += `${clueEl.value}, ${numEl.value}</br>`
     } else {
         document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>please input a valid number.</h2>`
     }
@@ -78,12 +80,21 @@ function tries(){
 
 // Control Team Passes their Turn
 function passTurn(){
+    console.log(cardsTried)
     if (cardsTried === 0) {
-        document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br> You must click a card before passing. You have ${guesses} ${guesses > 1? "guesses" : "guess"}.</h2>`
+        document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br> You must click a card before passing. You have ${guesses === -1 ? "no" : guesses} ${guesses === 1? "guess" : "guesses"}.</h2>`
+    
+    
+    
+    
+    
     } else {
     console.log("turn passed!")
     control = flipVariable(control);
+    guesses = 0;
+    cardsTried = 0;
     numEl.value = '';
+    clueEl.value = '';
     console.log(control)
     document.getElementById("guessInfo").innerHTML = `<h2>It's ${control === 'r'? "Red" : "Blue"} team's turn!</h2>`
     }
@@ -92,6 +103,8 @@ function passTurn(){
 // Initialization Function
 function init(){
     document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team: </br> Please input a one-word clue and number of guesses.</h2>`
+    clueEl.value = '';
+    numEl.value = '';
     words.forEach((elem, idx) => {
         document.getElementById(idx).innerHTML = elem;
     })
@@ -121,7 +134,9 @@ function playerClick(evt){
                 document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>you have ${guesses} ${guesses > 1? "guesses" : "guess"} left</h2>`
                 if (guesses < 1){
                     numEl.value = "";
+                    clueEl.value = '';
                     control = flipVariable(control);
+                    cardsTried = 0;
                     document.getElementById("guessInfo").innerHTML = `<h2>It's ${control === 'r'? "Red" : "Blue"} team's turn!</h2>`
                 }
             } else { // if there are no more lower case control variables, the game is over. 
@@ -132,7 +147,9 @@ function playerClick(evt){
             board[evt.target.id] = board[evt.target.id].toUpperCase() // set that element to upper case 
             guesses = -1; //reset guess count
             control = flipVariable(control);
+            cardsTried = 0;
             numEl.value = '';
+            clueEl.value = '';
             document.getElementById("guessInfo").innerHTML = `<h2>It's ${control === 'r'? "Red" : "Blue"} team's turn</h2>`
             if (!board.some(elem => elem === control)){
                 document.getElementById("guessInfo").innerHTML = `<h2>${flipVariable(control)} wins!!</h2>`
