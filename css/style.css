@@ -39,35 +39,43 @@ div {
 }
 /* Right hand side player information */
 #redBoard {
-  justify-self: stretch;
   width: auto;
   height: 100%;
 }
 /* Left hand side player information */
 #blueBoard {
   width: 100%;
-  height: 100%;
-  background: cornflowerblue;
-  
+  height: 100%;  
 }
-#r {
+.r {
+  color: red;
+  background-color: black;
+}
+.b {
+  color: blue;
+  background-color: black;
+}
+.n {
+  color: yellow;
+  background-color: black;
+}
+.a {
+  color: salmon;
+  background-color: black!important;
+}
+.R {
+  color: white; 
+  background-color: red;
+}
+.B {
+  color: white; 
+  background-color: blue;
+}
+.N {
+  color: black;
+  background-color: yellow;
+}
 
-}
-#b {
-
-}
-#n {
-
-}
-#R {
-
-}
-#B {
-
-}
-#N {
-
-}
 
 
 
