@@ -97,3 +97,5 @@ let killCard = output[1[1]]; // maybe have the
 
 // TO GET THE NAME IN THE ARRAY: 
 // document.getElementById(x).innerHTML
+// TO GET THE CLASS NAME IN THE ARRAY
+//document.getElementById(x).className
