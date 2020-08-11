@@ -6,12 +6,14 @@ const board = [null, null, null, null, null, null, null, null, null, null, null,
 let size = 25; // board size
 let control = 'r'; // set to team character to quickly check array, etc
 let guesses = -1; // set guess count to -1 so that if the player hasn't input a number, it won't default to 1 guess 
+let cardsTried = 0;
 
 /*------Cached Element References------*/
 const gridEls = document.getElementsByClassName("grid")[0];
 const squares = gridEls.children;
 const numEl = document.getElementById("num"); 
 const submitEl = document.getElementById("numSubmit");
+const passEl = document.getElementById("pass")
 
 /*------Event Listeners------*/
 for (let index = 0; index < squares.length; index++) {
@@ -20,6 +22,7 @@ for (let index = 0; index < squares.length; index++) {
 }
 
 submitEl.addEventListener('click', tries);
+passEl.addEventListener('click', passTurn);
 
 /*------FUNCTIONS, FUNC YEAH------*/
 // Random Number Generator Function
@@ -34,7 +37,7 @@ function teamAssignment(size){
     document.getElementById(x).className += "a"
     // document.getElementById("x") = document.getElementById("x").className("a");
     for (i = 0; i < 9; i++){        // randomly generating 9 red cards
-        let x = randomizer(size);
+        x = randomizer(size);
         while (board[x] !== null){
             x = randomizer(size);
         } 
@@ -43,7 +46,7 @@ function teamAssignment(size){
     } 
 
     for (i = 0; i < 8; i++){        // randomly generating 8 blue cards
-        let x = randomizer(size);
+        x = randomizer(size);
         while (board[x] !== null){
             x = randomizer(size);
         } 
@@ -52,28 +55,39 @@ function teamAssignment(size){
     }
     
     for (i = 0; i < 7; i++){        // randomly generating 7 neutral cards
-        let x = randomizer(size);
+        x = randomizer(size);
         while (board[x] !== null){
             x = randomizer(size);
         } 
         board[x] = 'n';
         document.getElementById(x).className += "n"
     }
-
-    console.log(board)
 }
 
 // How many tries a player has before turn is flipped
 function tries(){
-    if (numEl.value === 0){
-        guesses = 1;
-    } else if (numEl.value > 0){
+    console.log(numEl.value)
+    cardsTried = 0;
+    if (numEl.value >= 0){
         guesses = parseInt(numEl.value) + 1;
         document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>you have ${guesses} ${guesses > 1? "guesses" : "guess"}.</h2>`
     } else {
         document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>please input a valid number.</h2>`
     }
 };
+
+// Control Team Passes their Turn
+function passTurn(){
+    if (cardsTried === 0) {
+        document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br> You must click a card before passing. You have ${guesses} ${guesses > 1? "guesses" : "guess"}.</h2>`
+    } else {
+    console.log("turn passed!")
+    control = flipVariable(control);
+    numEl.value = '';
+    console.log(control)
+    document.getElementById("guessInfo").innerHTML = `<h2>It's ${control === 'r'? "Red" : "Blue"} team's turn!</h2>`
+    }
+}
 
 // Initialization Function
 function init(){
@@ -92,6 +106,7 @@ function playerClick(evt){
         document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>please input a valid guess.</h2>`
         return
     }
+    cardsTried++
     console.log(evt.target.id, board[evt.target.id]) // use document.addClassName or whatever to add a class to the card (class = red or class = blue or neutral) that will HIDE the word, and then put the "spy card" over it. 
     document.getElementById(evt.target.id).className = board[evt.target.id].toUpperCase()
         if (board[evt.target.id] === 'a'){
@@ -140,7 +155,7 @@ function assassino(){
 
 function render(){
     console.log("I'm rendering!")
-    
+    console.log(`you've tried ${cardsTried} card(s)`)
     // use document.addClassName or whatever to add a class to the card (class = red or class = blue and class = neutral) that will sync with board array and 
     
 }
