@@ -64,13 +64,13 @@ function tries(){
         guesses = 1;
     } else {
         guesses = parseInt(numEl.value) + 1;
-        document.getElementById("guessInfo").innerHTML = `<h1>${control} team, you have ${guesses} ${guesses > 1? "guesses" : "guess"}.</h1>`
+        document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, you have ${guesses} ${guesses > 1? "guesses" : "guess"}.</h2>`
     }
 };
 
 // Initialization Function
 function init(){
-    document.getElementById("guessInfo").innerHTML = `<h1>${control} team: </br> Please input a one-word clue and number of guesses.</h1>`
+    document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team: </br> Please input a one-word clue and number of guesses.</h2>`
     words.forEach((elem, idx) => {
         document.getElementById(idx).innerHTML = elem;
     })
@@ -79,14 +79,15 @@ function init(){
 // Player Click Function
 function playerClick(evt){
     if (board[evt.target.id] === board[evt.target.id].toUpperCase()){
-        document.getElementById("guessInfo").innerHTML = `<h1>Please click a valid card.</h1>`
+        document.getElementById("guessInfo").innerHTML = `<h2>Please click a valid card.</h2>`
         return
     } else if (guesses < 1){
-        document.getElementById("guessInfo").innerHTML = `<h1>Please input a valid guess.</h1>`
+        document.getElementById("guessInfo").innerHTML = `<h2>Please input a valid guess.</h2>`
         return
     }
     console.log(evt.target.id, board[evt.target.id]) // use document.addClassName or whatever to add a class to the card (class = red or class = blue or neutral) that will HIDE the word, and then put the "spy card" over it. 
         if (board[evt.target.id] === 'a'){
+            document.getElementById("guessInfo").innerHTML = `<h2>ASSASSINO! </br> ${flipVariable(control) === 'r'? "RED" : "BLUE"} TEAM WINS</h2>`
             assassino();
             // player has chosen Assassin card, and the game is over. run assassino function
             // pop up a new modal with YOU LOST TOO BAD.
@@ -94,23 +95,23 @@ function playerClick(evt){
             board[evt.target.id] = board[evt.target.id].toUpperCase() // set that element to upper case 
             if (board.some(elem => elem === control)){ // if there are still lower case control variables, the game continues, control continues their turn, and the guesses decrement
                 guesses--
-                document.getElementById("guessInfo").innerHTML = `<h1>You have ${guesses} ${guesses > 1? "guesses" : "guess"} left</h1>`
+                document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, you have ${guesses} ${guesses > 1? "guesses" : "guess"} left</h2>`
                 if (guesses < 1){
                     numEl.value = "";
                     control = flipVariable(control);
-                    document.getElementById("guessInfo").innerHTML = `<h1>It's ${control}'s turn!</h1>`
+                    document.getElementById("guessInfo").innerHTML = `<h2>It's ${control === 'r'? "Red" : "Blue"} team's turn!</h2>`
                 }
             } else { // if there are no more lower case control variables, the game is over. 
                 console.log('you win') // the game is over, you win.
-                document.getElementById("guessInfo").innerHTML = `<h1>${control} wins!</h1>`
+                document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team wins!</h2>`
             }
         } else { // player chooses opponent's or neutral card
             board[evt.target.id] = board[evt.target.id].toUpperCase() // set that element to upper case 
             guesses = -1; //reset guess count
             control = flipVariable(control);
-            document.getElementById("guessInfo").innerHTML = `<h1>It's ${control}'s turn</h1>`
+            document.getElementById("guessInfo").innerHTML = `<h2>It's ${control === 'r'? "Red" : "Blue"} team's turn</h2>`
             if (!board.some(elem => elem === control)){
-                document.getElementById("guessInfo").innerHTML = `<h1>${flipVariable(control)} wins!!</h1>`
+                document.getElementById("guessInfo").innerHTML = `<h2>${flipVariable(control)} wins!!</h2>`
              }
         } 
     render();
