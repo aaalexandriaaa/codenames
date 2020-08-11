@@ -12,6 +12,10 @@ let killCard = output[1[1]]; // maybe have the
 
 // document.getElementById("guessInfo").innerHTML = "your turn is over."
 
+
+
+
+
 // Homepage View
 
 // pull in text file.
@@ -87,3 +91,9 @@ let killCard = output[1[1]]; // maybe have the
 //     addNums,
 //     eatTaco
 // }
+
+
+
+
+// TO GET THE NAME IN THE ARRAY: 
+// document.getElementById(x).innerHTML
