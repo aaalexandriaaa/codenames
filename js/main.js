@@ -29,14 +29,17 @@ function randomizer(range){     // range should equal 25
 
 // Team Assignment Array
 function teamAssignment(size){      
-    board[randomizer(size)] = 'a';  // assassin card
-    
+    let x = randomizer(size)
+    board[x] = 'a';  // assassin card
+    document.getElementById(x).className += "a"
+    // document.getElementById("x") = document.getElementById("x").className("a");
     for (i = 0; i < 9; i++){        // randomly generating 9 red cards
         let x = randomizer(size);
         while (board[x] !== null){
             x = randomizer(size);
         } 
         board[x] = 'r';
+        document.getElementById(x).className += "r"
     } 
 
     for (i = 0; i < 8; i++){        // randomly generating 8 blue cards
@@ -45,6 +48,7 @@ function teamAssignment(size){
             x = randomizer(size);
         } 
         board[x] = 'b';
+        document.getElementById(x).className += "b"
     }
     
     for (i = 0; i < 7; i++){        // randomly generating 7 neutral cards
@@ -53,6 +57,7 @@ function teamAssignment(size){
             x = randomizer(size);
         } 
         board[x] = 'n';
+        document.getElementById(x).className += "n"
     }
 
     console.log(board)
@@ -62,9 +67,11 @@ function teamAssignment(size){
 function tries(){
     if (numEl.value === 0){
         guesses = 1;
-    } else {
+    } else if (numEl.value > 0){
         guesses = parseInt(numEl.value) + 1;
-        document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, you have ${guesses} ${guesses > 1? "guesses" : "guess"}.</h2>`
+        document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>you have ${guesses} ${guesses > 1? "guesses" : "guess"}.</h2>`
+    } else {
+        document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>please input a valid number.</h2>`
     }
 };
 
@@ -79,13 +86,14 @@ function init(){
 // Player Click Function
 function playerClick(evt){
     if (board[evt.target.id] === board[evt.target.id].toUpperCase()){
-        document.getElementById("guessInfo").innerHTML = `<h2>Please click a valid card.</h2>`
+        document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>please click a valid card.</h2>`
         return
     } else if (guesses < 1){
-        document.getElementById("guessInfo").innerHTML = `<h2>Please input a valid guess.</h2>`
+        document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>please input a valid guess.</h2>`
         return
     }
     console.log(evt.target.id, board[evt.target.id]) // use document.addClassName or whatever to add a class to the card (class = red or class = blue or neutral) that will HIDE the word, and then put the "spy card" over it. 
+    document.getElementById(evt.target.id).className = board[evt.target.id].toUpperCase()
         if (board[evt.target.id] === 'a'){
             document.getElementById("guessInfo").innerHTML = `<h2>ASSASSINO! </br> ${flipVariable(control) === 'r'? "RED" : "BLUE"} TEAM WINS</h2>`
             assassino();
@@ -95,7 +103,7 @@ function playerClick(evt){
             board[evt.target.id] = board[evt.target.id].toUpperCase() // set that element to upper case 
             if (board.some(elem => elem === control)){ // if there are still lower case control variables, the game continues, control continues their turn, and the guesses decrement
                 guesses--
-                document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, you have ${guesses} ${guesses > 1? "guesses" : "guess"} left</h2>`
+                document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>you have ${guesses} ${guesses > 1? "guesses" : "guess"} left</h2>`
                 if (guesses < 1){
                     numEl.value = "";
                     control = flipVariable(control);
@@ -109,6 +117,7 @@ function playerClick(evt){
             board[evt.target.id] = board[evt.target.id].toUpperCase() // set that element to upper case 
             guesses = -1; //reset guess count
             control = flipVariable(control);
+            numEl.value = '';
             document.getElementById("guessInfo").innerHTML = `<h2>It's ${control === 'r'? "Red" : "Blue"} team's turn</h2>`
             if (!board.some(elem => elem === control)){
                 document.getElementById("guessInfo").innerHTML = `<h2>${flipVariable(control)} wins!!</h2>`
@@ -131,6 +140,7 @@ function assassino(){
 
 function render(){
     console.log("I'm rendering!")
+    
     // use document.addClassName or whatever to add a class to the card (class = red or class = blue and class = neutral) that will sync with board array and 
     
 }
