@@ -15,7 +15,7 @@ const numEl = document.getElementById("num");
 const clueEl = document.getElementById("clue"); 
 const submitEl = document.getElementById("numSubmit");
 const passEl = document.getElementById("pass")
-const spymasterEl = document.getElementById("Spymaster")
+const spymasterEl = document.getElementById("spymaster")
 
 /*------Event Listeners------*/
 for (let index = 0; index < squares.length; index++) {
