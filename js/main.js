@@ -1,12 +1,22 @@
 /*------Constants------*/
 const words = ['alexandria', 'betty', 'catherine', 'donna', 'ella', 'faith', 'geraldine', 'hannah', 'inez', 'jillian', 'katie', 'louise', 'mary', 'nancy', 'olivia', 'penelope', 'rose', 'samantha', 'tabitha', 'ursula', 'valerie', 'willa', 'xiomara', 'yoshiko', 'zenobia']; // prepopulating a words array so that I can 
 const board = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]; //
+
 const colorScheme = {
     spymaster: false, 
     changeColorScheme: function (){
         colorScheme.spymaster ? colorScheme.spymaster = false : colorScheme.spymaster = true
         const color = colorScheme.spymaster ? "spymaster" : ""
         body.setAttribute("class", color) //took this from David's code
+        if (colorScheme.spymaster === true){
+            for (let x = 0; x < 25; x++){
+                document.getElementById(x).classList.add(color)
+            }
+        } else {
+            for (let x = 0; x < 25; x++){
+                document.getElementById(x).classList.remove("spymaster")
+            }
+        }
     }
 };
 

@@ -16,21 +16,31 @@
   --blue:      #268bd2;
   --cyan:      #2aa198;
   --green:     #859900;
+  --eggshell: #d0cbba;
+  --cardRed: #c85a58;
+  --cardBlue: #539fd5;
+
 }
 /* whole page */
 html, body {
   height: 100%;
   font-family: helvetica;
   margin: 0;
-  color: #073642;
+  color: var(--base03);
 }
 body {
   margin: 2rem;
   font: 12px system-ui;
   font-stretch: expanded;
-  background: #93a1a1;
-  /* background: rgb(249, 240, 240); background color I was originally using*/
+  background: var(--base1);
+  --redCar = 
 }
+body.spymaster {
+  background: var(--base03);
+  color: var(--base3)
+}
+h1 {
+  padding: 0px 0px 25px 0px;
   font-family: 'Orbitron', sans-serif;
 }
 div {
@@ -49,61 +59,95 @@ div {
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr); 
-  /* grid-template-columns: gives me exactly 5 columns */
   grid-gap: 1rem;
   align-items: center;
+  padding: 0px 10px 10px 10px;
 }
 /* Individual Cards */
 .grid > div {
-  background: #fdf6e3;
-  color: #073642;
+  background: var(--base3);
+  color: var(--base03);
   padding: 1.5rem;
   border-radius: 1rem;
   font-size: 20px;
 }
-/* Right hand side player information */
 #redBoard {
   width: auto;
   height: 100%;
 }
-/* Left hand side player information */
 #blueBoard {
   width: 100%;
   height: 100%;  
 }
-/* .r {
-  color: black;
-  background-color: black;
+.r.spymaster {
+  color: white!important;
+  background-color: var(--cardRed)!important;
+  font-weight: bold;
 }
-.b {
-  color: black;
-  background-color: black;
+.b.spymaster {
+  color: white!important;
+  background-color: var(--cardBlue)!important;
+  font-weight: bold;
 }
-.n {
-  color: black;
-  background-color: black;
+.n.spymaster {
+  color: white!important;
+  background-color: var(--yellow)!important;
+  font-weight: bold;
 }
-.a {
-  color: black;
+.a.spymaster {
+  color: whitesmoke;
   background-color: black;
-}
+  font-weight: bold;
+} 
 .R {
   color: var(--red)!important;
   background-color: var(--red)!important;
-  opacity: 50%
+  opacity: 75%
 }
-.B {
-  color: blue!important;
-  background-color: blue!important;
-  opacity: 50%
+.B { 
+  color: var(--blue)!important;
+  background-color: var(--blue)!important;
+  opacity: 75%
 }
 .N {
-  color: yellow!important;
-  background-color: yellow!important;
-  opacity: 50%
-}  */
-
+  color: var(--yellow)!important;
+  background-color: var(--yellow)!important;
+  opacity: 75%
+}  
 
 .btn:hover {
-  background-color: #2aa198;
+  background-color: var(--magenta)!important;
+}
+
+.input-group-text {
+  background-color: var(--base2);
+}
+
+.form-control{
+  background-color: var(--eggshell);
+}
+
+.btn-light {
+  background-color: var(--base3)!important;
+  color: var(--base03)!important;
+}
+
+.btn-dark {
+  background-color: var(--base03)!important;
+  color: var(--base3)!important;
+  margin: 10px auto;
+  padding: 20px ;
+  font-size: 250%!important;
+  letter-spacing: 7px;
+}
+h4 {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+}
+p {
+  text-align: left;
+  font-size: 20px; 
+  line-height: 30px;
 }
