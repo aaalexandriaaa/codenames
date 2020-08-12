@@ -1,15 +1,35 @@
+/* setting variables to root so that all will have access */
+:root{
+  --base03:    #002b36;
+  --base02:    #073642;
+  --base01:    #586e75;
+  --base00:    #657b83;
+  --base0:     #839496;
+  --base1:     #93a1a1;
+  --base2:     #eee8d5;
+  --base3:     #fdf6e3;
+  --yellow:    #b58900;
+  --orange:    #cb4b16;
+  --red:       #dc322f;
+  --magenta:   #d33682;
+  --violet:    #6c71c4;
+  --blue:      #268bd2;
+  --cyan:      #2aa198;
+  --green:     #859900;
+}
 /* whole page */
 html, body {
   height: 100%;
   font-family: helvetica;
   margin: 0;
+  color: #073642;
 }
 body {
   margin: 2rem;
   font: 12px system-ui;
   font-stretch: expanded;
-  background: url("https://images.pexels.com/photos/1323712/pexels-photo-1323712.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
-  /* https://www.pexels.com/photo/marble-surface-wall-white-1323712/ */
+  background: #93a1a1;
+  /* background: rgb(249, 240, 240); background color I was originally using*/
 }
 div {
   text-align: center;
@@ -33,9 +53,11 @@ div {
 }
 /* Individual Cards */
 .grid > div {
-  background: #EDE7F6;
+  background: #fdf6e3;
+  color: #073642;
   padding: 1.5rem;
   border-radius: 1rem;
+  font-size: 20px;
 }
 /* Right hand side player information */
 #redBoard {
@@ -47,36 +69,39 @@ div {
   width: 100%;
   height: 100%;  
 }
-.r {
-  color: red;
+/* .r {
+  color: black;
   background-color: black;
 }
 .b {
-  color: blue;
+  color: black;
   background-color: black;
 }
 .n {
-  color: yellow;
+  color: black;
   background-color: black;
 }
 .a {
-  color: salmon;
-  background-color: black!important;
+  color: black;
+  background-color: black;
 }
 .R {
-  color: red!important;
-  background-color: red!important;
+  color: var(--red)!important;
+  background-color: var(--red)!important;
+  opacity: 50%
 }
 .B {
   color: blue!important;
   background-color: blue!important;
+  opacity: 50%
 }
 .N {
   color: yellow!important;
   background-color: yellow!important;
+  opacity: 50%
+}  */
+
+
+.btn:hover {
+  background-color: #2aa198;
 }
-
-
-
-
-  /* 2 red 2 blue 2 neutral 1 assassin groups for cards so that if it's R i can hide the word & RED IT OUT and if it's r I can use the red background but still show the word. */
