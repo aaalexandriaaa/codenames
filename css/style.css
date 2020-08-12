@@ -33,7 +33,6 @@ body {
   font: 12px system-ui;
   font-stretch: expanded;
   background: var(--base1);
-  --redCar = 
 }
 body.spymaster {
   background: var(--base03);
