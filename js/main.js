@@ -15,6 +15,7 @@ const numEl = document.getElementById("num");
 const clueEl = document.getElementById("clue"); 
 const submitEl = document.getElementById("numSubmit");
 const passEl = document.getElementById("pass")
+const spymasterEl = document.getElementById("Spymaster")
 
 /*------Event Listeners------*/
 for (let index = 0; index < squares.length; index++) {
@@ -24,6 +25,7 @@ for (let index = 0; index < squares.length; index++) {
 
 submitEl.addEventListener('click', clueInfo);
 passEl.addEventListener('click', passTurn);
+spymasterEl.addEventListener('click', spyMasterMode);
 
 /*------FUNCTIONS, FUNC YEAH------*/
 // Random Number Generator Function
@@ -177,5 +179,8 @@ function render(){
     
 }
 
+function spyMasterMode(){
+    console.log('spymaster!')
+}
 
 init()
