@@ -31,6 +31,8 @@ body {
   background: #93a1a1;
   /* background: rgb(249, 240, 240); background color I was originally using*/
 }
+  font-family: 'Orbitron', sans-serif;
+}
 div {
   text-align: center;
 }
