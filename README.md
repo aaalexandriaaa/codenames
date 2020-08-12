@@ -86,3 +86,4 @@ Implementation of a fair, equitable, and just website that:
 * [Blue team card image](https://www.pexels.com/photo/blue-abstract-painting-1568607/)
 * [Good Background Colors for Readers: A Study of People with and without Dyslexia](https://www.cs.cmu.edu/~jbigham/pubs/pdfs/2017/colors.pdf) 
 * [Accessibility Subreddit](reddit.com/r/Accessibility)
+* [Spymaster & Field Operative color schemes were taken from Ethan Schoonover's Solarized](https://ethanschoonover.com/solarized/)
