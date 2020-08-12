@@ -1,6 +1,14 @@
 /*------Constants------*/
 const words = ['alexandria', 'betty', 'catherine', 'donna', 'ella', 'faith', 'geraldine', 'hannah', 'inez', 'jillian', 'katie', 'louise', 'mary', 'nancy', 'olivia', 'penelope', 'rose', 'samantha', 'tabitha', 'ursula', 'valerie', 'willa', 'xiomara', 'yoshiko', 'zenobia']; // prepopulating a words array so that I can 
 const board = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]; //
+const colorScheme = {
+    spymaster: false, 
+    changeColorScheme: function (){
+        colorScheme.spymaster ? colorScheme.spymaster = false : colorScheme.spymaster = true
+        const color = colorScheme.spymaster ? "spymaster" : ""
+        body.setAttribute("class", color) //took this from David's code
+    }
+};
 
 /*------Variables (state)------*/
 let size = 25; // board size
@@ -16,6 +24,7 @@ const clueEl = document.getElementById("clue");
 const submitEl = document.getElementById("numSubmit");
 const passEl = document.getElementById("pass")
 const spymasterEl = document.getElementById("spymaster")
+const body = document.getElementById('body');
 
 /*------Event Listeners------*/
 for (let index = 0; index < squares.length; index++) {
@@ -25,14 +34,13 @@ for (let index = 0; index < squares.length; index++) {
 
 submitEl.addEventListener('click', clueInfo);
 passEl.addEventListener('click', passTurn);
-spymasterEl.addEventListener('click', spyMasterMode);
+spymasterEl.addEventListener('click', colorScheme.changeColorScheme);
 
 /*------FUNCTIONS, FUNC YEAH------*/
 // Random Number Generator Function
 function randomizer(range){     // range should equal 25
     return Math.floor(Math.random() * range);  
 } 
-
 // Team Assignment Array
 function teamAssignment(size){      
     let x = randomizer(size)
@@ -66,7 +74,6 @@ function teamAssignment(size){
         document.getElementById(x).className += "n"
     }
 }
-
 // How many tries a player has before turn is flipped
 function clueInfo(){
     console.log(numEl.value)
@@ -79,17 +86,11 @@ function clueInfo(){
         document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>please input a valid number.</h2>`
     }
 };
-
 // Control Team Passes their Turn
 function passTurn(){
     console.log(cardsTried)
     if (cardsTried === 0) {
         document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br> You must click a card before passing. You have ${guesses === -1 ? "no" : guesses} ${guesses === 1? "guess" : "guesses"}.</h2>`
-    
-    
-    
-    
-    
     } else {
     console.log("turn passed!")
     control = flipVariable(control);
@@ -101,7 +102,6 @@ function passTurn(){
     document.getElementById("guessInfo").innerHTML = `<h2>It's ${control === 'r'? "Red" : "Blue"} team's turn!</h2>`
     }
 }
-
 // Initialization Function
 function init(){
     document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team: </br> Please input a one-word clue and number of guesses.</h2>`
@@ -159,7 +159,7 @@ function playerClick(evt){
         } 
     render();
 }
-
+// Flips Control Variable
 function flipVariable(control){
     if (control === 'b'){
         return 'r'
@@ -167,20 +167,18 @@ function flipVariable(control){
         return 'b'
     }
 }
-
+// Will ultimately run the "opposite team wins!" 
 function assassino(){
     console.log("ASSASSINO")
 }
-
+// I should refactor my code so that I'm using this function.
 function render(){
     console.log("I'm rendering!")
     console.log(`you've tried ${cardsTried} card(s)`)
     // use document.addClassName or whatever to add a class to the card (class = red or class = blue and class = neutral) that will sync with board array and 
     
 }
+// Basic functionality is like a dark mode button
 
-function spyMasterMode(){
-    console.log('spymaster!')
-}
 
 init()
