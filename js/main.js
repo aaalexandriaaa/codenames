@@ -81,7 +81,7 @@ function clueInfo(){
     if (numEl.value >= 0){
         guesses = parseInt(numEl.value) + 1;
         document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>you have ${guesses} ${guesses > 1? "guesses" : "guess"}.</h2>`;
-        document.getElementById(`${control === 'r'? "redList" : "blueList"}`).innerHTML += `${clueEl.value}, ${numEl.value}</br>`
+        document.getElementById(`${control === 'r'? "redList" : "blueList"}`).innerHTML += `${clueEl.value.bold()}, ${numEl.value}</br>`
     } else {
         document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>please input a valid number.</h2>`
     }
