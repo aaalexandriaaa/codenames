@@ -30,6 +30,7 @@ Implementation of a fair, equitable, and just website that:
 1. JavaScript
 2. HTML
 3. CSS
+4. Bootstrap
    
 ## 3. Wireframes
 [View wireframes here.](https://www.canva.com/design/DAEEDmlvdQE/XlOWR4xfqbIZHaSOLQMzwg/view?utm_content=DAEEDmlvdQE&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton)
@@ -86,4 +87,6 @@ Implementation of a fair, equitable, and just website that:
 * [Blue team card image](https://www.pexels.com/photo/blue-abstract-painting-1568607/)
 * [Good Background Colors for Readers: A Study of People with and without Dyslexia](https://www.cs.cmu.edu/~jbigham/pubs/pdfs/2017/colors.pdf) 
 * [Accessibility Subreddit](reddit.com/r/Accessibility)
+* [Bootstrap](getbootstrap.com)
 * [Spymaster & Field Operative color schemes were taken from Ethan Schoonover's Solarized](https://ethanschoonover.com/solarized/)
+* [Orbitron Font](https://fonts.google.com/specimen/Orbitron)
