@@ -1,6 +1,28 @@
 /*------Constants------*/
-const words = ['alexandria', 'betty', 'catherine', 'donna', 'ella', 'faith', 'geraldine', 'hannah', 'inez', 'jillian', 'katie', 'louise', 'mary', 'nancy', 'olivia', 'penelope', 'rose', 'samantha', 'tabitha', 'ursula', 'valerie', 'willa', 'xiomara', 'yoshiko', 'zenobia']; // prepopulating a words array so that I can 
+const dictionary = [
+    "bench", "venus", "oasis", "saw", "patient", "rubber", "bacon", "rat", "saddle", "desk", 
+    "beam", "curry", "apron", "parade", "wizard", "Noah", "sign", "hamburger", "parrot", "bicycle", 
+    "tornado", "virus", "map", "battle", "jockey", "coffee", "silk", "rodeo", "meter", "gymnast", 
+    "chalk", "road", "St. Patrick", "makeup", "marathon", "skates", "scarecrow", "Notre Dame", "kilt", "walrus", 
+    "lunch", "taste", "blizzard", "shed", "bonsai", "Wonderland", "sling", "ant", "lemonade", "doll", 
+    "squirrel", "hose", "potter", "jumper", "flag", "cave", "pew", "pine", "locust", "ranch", 
+    "soap", "bucket", "craft", "golf", "comb", "glasses", "pizza", "Big Ben", "sled", "violet", 
+    "bubble", "spoon", "onion", "genie", "tank", "sherlock", "bay", "dryer", "brother", "mess", 
+    "ladder", "tattoo", "dash", "sticker", "rifle", "blues", "viking", "vampire", "biscuit", "pen",
+    "butter", "pillow", "castle", "scroll", "disk", "drone", "hammer", "floor", "battleship", "snake", 
+    "mark", "rail", "drawing", "mother", "squash", "tank", "miss", "elephant", "greenhouse", "bulb", 
+    "country", "wood", "purse", "break", "lace", "valentine", "cloud", "steam", "bunk", "bread", 
+    "cane", "team", "moses", "cherry", "christmas", "turtle", "cake", "snap", "potato", "coach",
+    "iceland", "pea", "mosquito", "frost", "blade", "hercules", "jeweler", "flat", "cuckoo", "tin", 
+    "pocket", "memory", "mud", "mill", "maracas", "foam", "hair", "yellowstone", "ice age", "attic", 
+    "pepper", "puppet", "spray", "microwave", "igloo", "musketeer", "monkey", "lip", "dust", "bowler", 
+    "fuel", "quarter", "sweat", "thunder", "slipper", "tunnel", "bucket", "jail", "boil", "driver", 
+    "delta", "nerve", "volume", "smoothie", "shower", "earthquake", "easter", "ski", "rip", "glacier", 
+    "roll", "russia", "pizza", "sloth", "salt", "troll", "quack", "pearl", "powder", "second", 
+    "chain", "werewolf", "garden", "smell", "door", "sail", "crow", "salsa", "magician", "pacific"
+    ]
 const board = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]; //
+const words = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]; //
 
 const colorScheme = {
     spymaster: false, 
@@ -9,10 +31,14 @@ const colorScheme = {
         const color = colorScheme.spymaster ? "spymaster" : ""
         body.setAttribute("class", color) //took this from David's code
         if (colorScheme.spymaster === true){
+            spymasterEl.classList.add("spymaster")
+            spymasterEl.innerHTML = "PLAYERS"
             for (let x = 0; x < 25; x++){
                 document.getElementById(x).classList.add(color)
             }
         } else {
+            spymasterEl.classList.remove("spymaster")
+            spymasterEl.innerHTML = "SPYMASTER"
             for (let x = 0; x < 25; x++){
                 document.getElementById(x).classList.remove("spymaster")
             }
@@ -25,6 +51,7 @@ let size = 25; // board size
 let control = 'r'; // set to team character to quickly check array, etc
 let guesses = -1; // set guess count to -1 so that if the player hasn't input a number, it won't default to 1 guess 
 let cardsTried = 0;
+
 
 /*------Cached Element References------*/
 const gridEls = document.getElementsByClassName("grid")[0];
@@ -84,6 +111,17 @@ function teamAssignment(size){
         document.getElementById(x).className += "n"
     }
 }
+function boardAssignment(dictionary, words){
+    words.forEach((elem, idx) => {
+        let x = randomizer(dictionary.length);
+        while (words.includes(dictionary[x])){
+            console.log(dictionary[x])
+            x = randomizer(dictionary.length);
+        }
+        words[idx] = dictionary[x]
+    })
+}
+
 // How many tries a player has before turn is flipped
 function clueInfo(){
     console.log(numEl.value)
@@ -117,10 +155,11 @@ function init(){
     document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team: </br> Please input a one-word clue and number of guesses.</h2>`
     clueEl.value = '';
     numEl.value = '';
+    boardAssignment(dictionary, words)
     words.forEach((elem, idx) => {
         document.getElementById(idx).innerHTML = elem;
     })
-    teamAssignment(size)
+    teamAssignment(size);
 }
 // Player Click Function
 function playerClick(evt){
