@@ -158,7 +158,10 @@ function init(){
 }
 // Player Click Function
 function playerClick(evt){
-    if (board[evt.target.id] === board[evt.target.id].toUpperCase()){
+    if (colorScheme.spymaster === true){
+        console.log(colorScheme.spymaster)
+        return
+    } else if (board[evt.target.id] === board[evt.target.id].toUpperCase()){
         document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>please click a valid card.</h2>`
         return
     } else if (guesses < 1){
