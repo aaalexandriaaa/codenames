@@ -44,8 +44,8 @@ Implementation of a fair, equitable, and just website that:
    Zenobia and her courtiers love the game Codenames. What they don't love is setting up the 5x5 grid of words so that everyone can see. Zenobia's favorite courtier has come across a website where the game set up is completed for them. Now Zenobia doesn't have to patiently wait for the board to be set up; she can play any time she wants! 
 
 ## 5. Screenshots
-[Player View](images/playerMode.png)
-[Spymaster View](images/spymasterMode.png)
+[Player View](images/playerMode.png) </br>
+[Spymaster View](images/spymasterMode.png)</br>
 [End Game View](images/endGame.png)
 
 ## 6. User Experience
