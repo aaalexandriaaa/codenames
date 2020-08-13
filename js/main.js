@@ -224,5 +224,6 @@ function winner(str){
     for (let x = 0; x < 25; x++){
         document.getElementById(x).classList.add("spymaster")
     }
+    board.forEach((elem, idx) => {
 }
 init()
