@@ -226,6 +226,8 @@ function winner(str){
     document.getElementById("pass").disabled = true; 
     document.getElementById("numSubmit").disabled = true; 
     spymasterEl.disabled = true;
+    document.getElementById("redCards").innerHTML = '';
+    document.getElementById("blueCards").innerHTML = '';    
     for (let x = 0; x < 25; x++){
         document.getElementById(x).classList.add("spymaster")
     }
