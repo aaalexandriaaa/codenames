@@ -9,11 +9,12 @@ CODENAMES JAVASCRIPT IMPLEMENTATION
   - [2. Technologies Used](#2-technologies-used)
   - [3. Wireframes](#3-wireframes)
   - [4. User Stories](#4-user-stories)
-  - [5. User Experience](#5-user-experience)
-  - [6. Stretch Goals:](#6-stretch-goals)
-  - [7. Pseudocode](#7-pseudocode)
-  - [8. Accessibility Discussion](#8-accessibility-discussion)
-  - [9. Attributions](#9-attributions)
+  - [5. Screenshots](#5-screenshots)
+  - [6. User Experience](#6-user-experience)
+  - [7. Stretch Goals:](#7-stretch-goals)
+  - [8. Pseudocode](#8-pseudocode)
+  - [9. Accessibility Discussion](#9-accessibility-discussion)
+  - [10. Attributions](#10-attributions)
 
 ## 0. Website Link
 [Play Codenames!](http://www.jscodenames.surge.sh)
@@ -42,7 +43,12 @@ Implementation of a fair, equitable, and just website that:
 
    Zenobia and her courtiers love the game Codenames. What they don't love is setting up the 5x5 grid of words so that everyone can see. Zenobia's favorite courtier has come across a website where the game set up is completed for them. Now Zenobia doesn't have to patiently wait for the board to be set up; she can play any time she wants! 
 
-## 5. User Experience
+## 5. Screenshots
+[Player View](images/playerMode.png)
+[Spymaster View](images/spymasterMode.png)
+[End Game View](images/endGame.png)
+
+## 6. User Experience
 *  The users will navigate to the game page and will see an image similar to first wireframe with text letting them know whose turn it is (e.g., Red Team, input your clue!).
 *  The spymasters will view the spymasters page, which will give them the following information: red words, blue words, neutral words, and the instant-death word.
 *  The spymasters will navigate back to the previous page, and the red spymaster will input a one word clue and the number of cards that are related to that clue (e.g., Amazon, 3 - could map to the 'box' card, the 'river' card, and the 'Greece' card.)
@@ -51,7 +57,7 @@ Implementation of a fair, equitable, and just website that:
    * If they click a neutral card, the turn is passed to the other team.
    * If they click the instant death card, they game is over and the other team (in this case, the Blue Team) wins.
 
-## 6. Stretch Goals: 
+## 7. Stretch Goals: 
 * Full compliance with [WCAG](https://www.w3.org/WAI/WCAG21/quickref/)
   * starting with full keyboard implementation & responsive sizing.
 * Implement spymaster & code guesser pages that load to two different so that everyone can play on their own devices.
@@ -59,7 +65,7 @@ Implementation of a fair, equitable, and just website that:
 * Implementation of Codenames: Duets - a 2 player varient of Codenames.
 * Allowing users to upload their own dictionary of words used for the game for a customizable experience.
 
-## 7. Pseudocode
+## 8. Pseudocode
 1. variables:
    1. game board array (5x5) - including 25 words
       1. RNG that takes 25 random words from the text file for dictionary and inputs them. 
@@ -83,7 +89,7 @@ Implementation of a fair, equitable, and just website that:
    2. pull in dictionary text file
    3. visual stuff
 
-## 8. Accessibility Discussion
+## 9. Accessibility Discussion
 From the beginning of this project, I knew I wanted to create a facsimile of Codenames that would be accessible to anyone who wanted to play. I also knew that was a big and complicated goal. For one, accessibility doesn't mean the same thing for every one; we all have different strengths in terms of how we process information (e.g., we all have different learning styles). For another, I'm not the ideal user for some accessibility requirements. To that end, I have done some research [linked in the attributions section](#9-attributions) and have attempted to implement as much as I could realistically implement in the project time frame. 
 
 I recognize that I have fallen short in some areas. The entire website relies on JavaScript manipulation (a prerequisite of the project) and clicking a mouse. I also have hard coded a lot of font sizes and layouts. In the future, I believe styling the page before generating the logic may help with that. 
@@ -91,7 +97,7 @@ I recognize that I have fallen short in some areas. The entire website relies on
 If you have any suggestions for improving the accessibility, please message me on [LinkedIn](www.linkedin.com/in/alexandriastephenson)
 
 
-## 9. Attributions
+## 10. Attributions
 * [A list of suggestions for a more robustly accessible website](https://www.solidstart.info)
 * [WCAG](https://www.w3.org/WAI/WCAG21/quickref/)
 * [Red team card image used in wireframes](https://www.pexels.com/photo/red-orange-waves-wallpaper-1998479/)
