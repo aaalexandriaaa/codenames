@@ -115,7 +115,6 @@ function boardAssignment(dictionary, words){
     words.forEach((elem, idx) => {
         let x = randomizer(dictionary.length);
         while (words.includes(dictionary[x])){
-            console.log(dictionary[x])
             x = randomizer(dictionary.length);
         }
         words[idx] = dictionary[x]
@@ -171,7 +170,6 @@ function playerClick(evt){
         return
     }
     cardsTried++
-    console.log(evt.target.id, board[evt.target.id]) // use document.addClassName or whatever to add a class to the card (class = red or class = blue or neutral) that will HIDE the word, and then put the "spy card" over it. 
     document.getElementById(evt.target.id).className = board[evt.target.id].toUpperCase()
         if (board[evt.target.id] === 'a'){
             document.getElementById("guessInfo").innerHTML = `<h2>ASSASSINO! </br> ${flipVariable(control) === 'r'? "RED" : "BLUE"} TEAM WINS</h2>`
@@ -203,7 +201,7 @@ function playerClick(evt){
             clueEl.value = '';
             document.getElementById("guessInfo").innerHTML = `<h2>It's ${control === 'r'? "Red" : "Blue"} team's turn</h2>`
             if (!board.some(elem => elem === control)){
-                document.getElementById("guessInfo").innerHTML = `<h2>${flipVariable(control)} wins!!</h2>`
+                document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team wins!</h2>`
              }
         } 
     render();
