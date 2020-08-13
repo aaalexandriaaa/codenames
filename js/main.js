@@ -196,6 +196,15 @@ function flipVariable(control){
         return 'b'
     }
 }
+// Flips Full Control of the Board
+function flipTurn(){
+    guesses = -1;
+    numEl.value = "";
+    clueEl.value = "";
+    cardsTried = 0;
+    control = flipVariable(control);
+    document.getElementById("guessInfo").innerHTML = `<h2>It's ${control === 'r'? "Red" : "Blue"} team's turn! </br> Please input a one-word clue and number of guesses.</h2>`
+}
 // Will ultimately run the "opposite team wins!" 
 function assassino(){
     console.log("ASSASSINO")
