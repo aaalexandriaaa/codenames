@@ -33,12 +33,16 @@ const colorScheme = {
         if (colorScheme.spymaster === true){
             spymasterEl.classList.add("spymaster")
             spymasterEl.innerHTML = "PLAYERS"
+            document.getElementById("pass").disabled = true; 
+            document.getElementById("numSubmit").disabled = false; 
             for (let x = 0; x < 25; x++){
                 document.getElementById(x).classList.add(color)
             }
         } else {
             spymasterEl.classList.remove("spymaster")
             spymasterEl.innerHTML = "SPYMASTER"
+            document.getElementById("pass").disabled = false; 
+            document.getElementById("numSubmit").disabled = true; 
             for (let x = 0; x < 25; x++){
                 document.getElementById(x).classList.remove("spymaster")
             }
