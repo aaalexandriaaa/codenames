@@ -127,8 +127,6 @@ function boardAssignment(dictionary, words){
 
 // How many tries a player has before turn is flipped
 function clueInfo(){
-    console.log(numEl.value)
-    console.log(clueEl.value)
     if (numEl.value >= 0){
         guesses = parseInt(numEl.value) + 1;
         document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>you have ${guesses} ${guesses > 1? "guesses" : "guess"}.</h2>`;
