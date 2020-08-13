@@ -117,6 +117,9 @@ div {
 .btn:hover {
   background-color: var(--magenta)!important;
 }
+.btn:hover.spymaster {
+  background-color: var(--magenta)!important;
+}
 
 .input-group-text {
   background-color: var(--base2);
@@ -134,6 +137,14 @@ div {
 .btn-dark {
   background-color: var(--base03)!important;
   color: var(--base3)!important;
+  margin: 10px auto;
+  padding: 20px ;
+  font-size: 250%!important;
+  letter-spacing: 7px;
+}
+.btn-dark.spymaster {
+  background-color: var(--base3)!important;
+  color: var(--base03)!important;
   margin: 10px auto;
   padding: 20px ;
   font-size: 250%!important;
