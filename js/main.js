@@ -155,7 +155,9 @@ function passTurn(){
 }
 // Initialization Function
 function init(){
-    document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team: </br> Please input a one-word clue and number of guesses.</h2>`
+    document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team's Spymaster: </br> View your board by clicking the "SPYMASTER" button </br>and input a one-word clue and number of guesses </h2>`
+    document.getElementById("pass").disabled = true; 
+    document.getElementById("numSubmit").disabled = true; 
     clueEl.value = '';
     numEl.value = '';
     boardAssignment(dictionary, words)
