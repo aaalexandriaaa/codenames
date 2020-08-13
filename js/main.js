@@ -206,17 +206,24 @@ function flipTurn(){
     document.getElementById("guessInfo").innerHTML = `<h2>It's ${control === 'r'? "Red" : "Blue"} team's turn! </br> Please input a one-word clue and number of guesses.</h2>`
 }
 // Will ultimately run the "opposite team wins!" 
-function assassino(){
-    console.log("ASSASSINO")
-}
-// I should refactor my code so that I'm using this function.
-function render(){
-    console.log("I'm rendering!")
-    console.log(`you've tried ${cardsTried} card(s)`)
-    // use document.addClassName or whatever to add a class to the card (class = red or class = blue and class = neutral) that will sync with board array and 
+function winner(str){
+    if (str === "assassin"){
+        document.getElementById("guessInfo").innerHTML = `<h2>ASSASSINO! </br> ${flipVariable(control) === 'r'? "RED" : "BLUE"} TEAM WINS</h2>`
+    } else if (str === "ctrl"){
+        document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team wins!</h2>`;
+    } else {
+        document.getElementById("guessInfo").innerHTML = `the winner function has malfunctioned`;
+        return
+    }
+    spymasterEl.classList.add("spymaster")
+    spymasterEl.innerHTML = "GAME OVER"
+    document.getElementById("pass").disabled = true; 
+    document.getElementById("numSubmit").disabled = true; 
+    document.getElementById("numSubmit").disabled = true; 
+    spymasterEl.disabled = true;
     
 }
-// Basic functionality is like a dark mode button
+
 
 
 init()
