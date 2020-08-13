@@ -205,7 +205,7 @@ function flipTurn(){
     control = flipVariable(control);
     document.getElementById("guessInfo").innerHTML = `<h2>It's ${control === 'r'? "Red" : "Blue"} team's turn! </br> Please input a one-word clue and number of guesses.</h2>`
 }
-// Will ultimately run the "opposite team wins!" 
+// Winner Function 
 function winner(str){
     if (str === "assassin"){
         document.getElementById("guessInfo").innerHTML = `<h2>ASSASSINO! </br> ${flipVariable(control) === 'r'? "RED" : "BLUE"} TEAM WINS</h2>`
@@ -215,15 +215,14 @@ function winner(str){
         document.getElementById("guessInfo").innerHTML = `the winner function has malfunctioned`;
         return
     }
+    colorScheme.spymaster = true;
     spymasterEl.classList.add("spymaster")
     spymasterEl.innerHTML = "GAME OVER"
     document.getElementById("pass").disabled = true; 
     document.getElementById("numSubmit").disabled = true; 
-    document.getElementById("numSubmit").disabled = true; 
     spymasterEl.disabled = true;
-    
+    for (let x = 0; x < 25; x++){
+        document.getElementById(x).classList.add("spymaster")
+    }
 }
-
-
-
 init()
