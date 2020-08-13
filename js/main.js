@@ -178,39 +178,25 @@ function playerClick(evt){
     cardsTried++
     document.getElementById(evt.target.id).className = board[evt.target.id].toUpperCase()
         if (board[evt.target.id] === 'a'){
-            document.getElementById("guessInfo").innerHTML = `<h2>ASSASSINO! </br> ${flipVariable(control) === 'r'? "RED" : "BLUE"} TEAM WINS</h2>`
-            assassino();
-            // player has chosen Assassin card, and the game is over. run assassino function
-            // pop up a new modal with YOU LOST TOO BAD.
+            winner("assassin");
         } else if (board[evt.target.id] === control){ // player chooses their card
             board[evt.target.id] = board[evt.target.id].toUpperCase() // set that element to upper case 
             if (board.some(elem => elem === control)){ // if there are still lower case control variables, the game continues, control continues their turn, and the guesses decrement
                 guesses--
                 document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>you have ${guesses} ${guesses > 1? "guesses" : "guess"} left</h2>`
                 if (guesses < 1){
-                    numEl.value = "";
-                    clueEl.value = '';
-                    control = flipVariable(control);
-                    cardsTried = 0;
-                    document.getElementById("guessInfo").innerHTML = `<h2>It's ${control === 'r'? "Red" : "Blue"} team's turn!</h2>`
+                    flipTurn();
                 }
             } else { // if there are no more lower case control variables, the game is over. 
-                console.log('you win') // the game is over, you win.
-                document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team wins!</h2>`
+                winner("ctrl");
             }
         } else { // player chooses opponent's or neutral card
             board[evt.target.id] = board[evt.target.id].toUpperCase() // set that element to upper case 
-            guesses = -1; //reset guess count
-            control = flipVariable(control);
-            cardsTried = 0;
-            numEl.value = '';
-            clueEl.value = '';
-            document.getElementById("guessInfo").innerHTML = `<h2>It's ${control === 'r'? "Red" : "Blue"} team's turn</h2>`
+            flipTurn();
             if (!board.some(elem => elem === control)){
-                document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team wins!</h2>`
+                winner("ctrl");
              }
         } 
-    render();
 }
 // Flips Control Variable
 function flipVariable(control){
