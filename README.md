@@ -12,7 +12,8 @@ CODENAMES JAVASCRIPT IMPLEMENTATION
   - [5. User Experience](#5-user-experience)
   - [6. Stretch Goals:](#6-stretch-goals)
   - [7. Pseudocode](#7-pseudocode)
-  - [8. Attributions](#8-attributions)
+  - [8. Accessibility Discussion](#8-accessibility-discussion)
+  - [9. Attributions](#9-attributions)
 
 ## 0. Website Link
 [Play Codenames!](http://www.jscodenames.surge.sh)
@@ -21,9 +22,10 @@ CODENAMES JAVASCRIPT IMPLEMENTATION
 Implementation of a fair, equitable, and just website that: 
    1. faithfully recreates the gameplay logic of Vlaada Chvátil's 2015 card game Codenames.
    2. visually recreates a stylized representation of the game board that is accessible to users who:
-      1. are visually impaired
+      1. are visually impaired or
       2. have processing deficits.
    3. is designed from the ground up with  data-oriented design philosophy.
+   4. the fulfills the requirements of the Unit 1 project for my Software Engineering Immersive program.
    
 
 ## 2. Technologies Used
@@ -51,6 +53,7 @@ Implementation of a fair, equitable, and just website that:
 
 ## 6. Stretch Goals: 
 * Full compliance with [WCAG](https://www.w3.org/WAI/WCAG21/quickref/)
+  * starting with full keyboard implementation & responsive sizing.
 * Implement spymaster & code guesser pages that load to two different so that everyone can play on their own devices.
 * Statistics based on what cards are left on the board. (specifically: "you have a 25% chance of choosing the instant death card; you have a 10% chance of choosing a neutral card.)
 * Implementation of Codenames: Duets - a 2 player varient of Codenames.
@@ -80,13 +83,22 @@ Implementation of a fair, equitable, and just website that:
    2. pull in dictionary text file
    3. visual stuff
 
-## 8. Attributions
+## 8. Accessibility Discussion
+From the beginning of this project, I knew I wanted to create a facsimile of Codenames that would be accessible to anyone who wanted to play. I also knew that was a big and complicated goal. For one, accessibility doesn't mean the same thing for every one; we all have different strengths in terms of how we process information (e.g., we all have different learning styles). For another, I'm not the ideal user for some accessibility requirements. To that end, I have done some research [linked in the attributions section](#9-attributions) and have attempted to implement as much as I could realistically implement in the project time frame. 
+
+I recognize that I have fallen short in some areas. The entire website relies on JavaScript manipulation (a prerequisite of the project) and clicking a mouse. I also have hard coded a lot of font sizes and layouts. In the future, I believe styling the page before generating the logic may help with that. 
+
+If you have any suggestions for improving the accessibility, please message me on [LinkedIn](www.linkedin.com/in/alexandriastephenson)
+
+
+## 9. Attributions
 * [A list of suggestions for a more robustly accessible website](https://www.solidstart.info)
 * [WCAG](https://www.w3.org/WAI/WCAG21/quickref/)
-* [Red team card image](https://www.pexels.com/photo/red-orange-waves-wallpaper-1998479/)
-* [Blue team card image](https://www.pexels.com/photo/blue-abstract-painting-1568607/)
+* [Red team card image used in wireframes](https://www.pexels.com/photo/red-orange-waves-wallpaper-1998479/)
+* [Blue team card image used in wireframes](https://www.pexels.com/photo/blue-abstract-painting-1568607/)
 * [Good Background Colors for Readers: A Study of People with and without Dyslexia](https://www.cs.cmu.edu/~jbigham/pubs/pdfs/2017/colors.pdf) 
 * [Accessibility Subreddit](reddit.com/r/Accessibility)
 * [Bootstrap](getbootstrap.com)
 * [Spymaster & Field Operative color schemes were taken from Ethan Schoonover's Solarized](https://ethanschoonover.com/solarized/)
 * [Orbitron Font](https://fonts.google.com/specimen/Orbitron)
+* [Web Accessibility; How to Design Websites for Blindness, Deaf, Disability, & Dyslexia](https://www.hobo-web.co.uk/design-website-for-blind/)
