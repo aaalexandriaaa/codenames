@@ -55,6 +55,9 @@ let size = 25; // board size
 let control = 'r'; // set to team character to quickly check array, etc
 let guesses = -1; // set guess count to -1 so that if the player hasn't input a number, it won't default to 1 guess 
 let cardsTried = 0;
+let redCards = 9;
+let blueCards = 8;
+let neutralCards = 7;
 
 
 /*------Cached Element References------*/
@@ -157,7 +160,6 @@ function init(){
 // Player Click Function
 function playerClick(evt){
     if (colorScheme.spymaster === true){
-        console.log(colorScheme.spymaster)
         return
     } else if (board[evt.target.id] === board[evt.target.id].toUpperCase()){
         document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>please click a valid card.</h2>`
@@ -175,6 +177,7 @@ function playerClick(evt){
             if (board.some(elem => elem === control)){ // if there are still lower case control variables, the game continues, control continues their turn, and the guesses decrement
                 guesses--
                 document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>you have ${guesses} ${guesses > 1? "guesses" : "guess"} left</h2>`
+                cardsRemaining();
                 if (guesses < 1){
                     flipTurn();
                 }
@@ -183,6 +186,7 @@ function playerClick(evt){
             }
         } else { // player chooses opponent's or neutral card
             board[evt.target.id] = board[evt.target.id].toUpperCase() // set that element to upper case 
+            cardsRemaining()
             flipTurn();
             if (!board.some(elem => elem === control)){
                 winner("ctrl");
@@ -228,12 +232,21 @@ function winner(str){
     document.getElementById("redListWords").innerHTML += `Red Words</br>`
     document.getElementById("blueListWords").innerHTML += `Blue Words</br>`
     board.forEach((elem, idx) => {
-        console.log(typeof(elem))
         if (elem.toUpperCase() ==="R"){
             document.getElementById("redListWords").innerHTML += `${words[idx]}</br>`
         } else if (elem.toUpperCase() ==="B"){
             document.getElementById("blueListWords").innerHTML += `${words[idx]}</br>`
         }
     });
+}
+// Determines and Displys how many player cards are left
+function cardsRemaining(){
+    if (control === 'r'){ 
+        redCards--
+        document.getElementById("redCards").innerHTML = `Red team has ${redCards} ${redCards > 1 ? "cards" : "card"} remaining in play.`
+    } else if (control === 'b'){
+        blueCards--
+        document.getElementById("blueCards").innerHTML = `Blue team has ${blueCards} ${blueCards > 1 ? "cards" : "card"} remaining in play.`
+    } 
 }
 init()
