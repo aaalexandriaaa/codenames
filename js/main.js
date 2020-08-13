@@ -137,18 +137,10 @@ function clueInfo(){
 };
 // Control Team Passes their Turn
 function passTurn(){
-    console.log(cardsTried)
     if (cardsTried === 0) {
         document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br> You must click a card before passing. You have ${guesses === -1 ? "no" : guesses} ${guesses === 1? "guess" : "guesses"}.</h2>`
     } else {
-    console.log("turn passed!")
-    control = flipVariable(control);
-    guesses = 0;
-    cardsTried = 0;
-    numEl.value = '';
-    clueEl.value = '';
-    console.log(control)
-    document.getElementById("guessInfo").innerHTML = `<h2>It's ${control === 'r'? "Red" : "Blue"} team's turn!</h2>`
+        flipTurn()
     }
 }
 // Initialization Function
