@@ -96,7 +96,6 @@ function teamAssignment(size){
         board[x] = 'r';
         document.getElementById(x).className += "r"
     } 
-
     for (i = 0; i < 8; i++){        // randomly generating 8 blue cards
         x = randomizer(size);
         while (board[x] !== null){
@@ -124,7 +123,6 @@ function boardAssignment(dictionary, words){
         words[idx] = dictionary[x]
     })
 }
-
 // How many tries a player has before turn is flipped
 function clueInfo(){
     if (numEl.value >= 0){
