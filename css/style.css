@@ -19,7 +19,6 @@
   --eggshell: #d0cbba;
   --cardRed: #c85a58;
   --cardBlue: #539fd5;
-
 }
 /* whole page */
 html, body {
@@ -113,27 +112,22 @@ div {
   background-color: var(--yellow)!important;
   opacity: 75%
 }  
-
 .btn:hover {
   background-color: var(--magenta)!important;
 }
 .btn:hover.spymaster {
   background-color: var(--magenta)!important;
 }
-
 .input-group-text {
   background-color: var(--base2);
 }
-
 .form-control{
   background-color: var(--eggshell);
 }
-
 .btn-light {
   background-color: var(--base3)!important;
   color: var(--base03)!important;
 }
-
 .btn-dark {
   background-color: var(--base03)!important;
   color: var(--base3)!important;
