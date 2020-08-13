@@ -224,6 +224,15 @@ function winner(str){
     for (let x = 0; x < 25; x++){
         document.getElementById(x).classList.add("spymaster")
     }
+    document.getElementById("redListWords").innerHTML += `Red Words</br>`
+    document.getElementById("blueListWords").innerHTML += `Blue Words</br>`
     board.forEach((elem, idx) => {
+        console.log(typeof(elem))
+        if (elem.toUpperCase() ==="R"){
+            document.getElementById("redListWords").innerHTML += `${words[idx]}</br>`
+        } else if (elem.toUpperCase() ==="B"){
+            document.getElementById("blueListWords").innerHTML += `${words[idx]}</br>`
+        }
+    });
 }
 init()
