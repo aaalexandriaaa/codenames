@@ -177,7 +177,7 @@ function playerClick(evt){
             if (board.some(elem => elem === control)){ // if there are still lower case control variables, the game continues, control continues their turn, and the guesses decrement
                 guesses--
                 document.getElementById("guessInfo").innerHTML = `<h2>${control === 'r'? "Red" : "Blue"} team, </br>you have ${guesses} ${guesses > 1? "guesses" : "guess"} left</h2>`
-                cardsRemaining();
+                cardsRemaining(board[evt.target.id]);
                 if (guesses < 1){
                     flipTurn();
                 }
@@ -186,7 +186,7 @@ function playerClick(evt){
             }
         } else { // player chooses opponent's or neutral card
             board[evt.target.id] = board[evt.target.id].toUpperCase() // set that element to upper case 
-            cardsRemaining()
+            cardsRemaining(board[evt.target.id])
             flipTurn();
             if (!board.some(elem => elem === control)){
                 winner("ctrl");
@@ -242,11 +242,11 @@ function winner(str){
     });
 }
 // Determines and Displys how many player cards are left
-function cardsRemaining(){
-    if (control === 'r'){ 
+function cardsRemaining(ID){
+    if (ID === "R"){ 
         redCards--
         document.getElementById("redCards").innerHTML = `Red team has ${redCards} ${redCards > 1 ? "cards" : "card"} remaining in play.`
-    } else if (control === 'b'){
+    } else if (ID === "B"){
         blueCards--
         document.getElementById("blueCards").innerHTML = `Blue team has ${blueCards} ${blueCards > 1 ? "cards" : "card"} remaining in play.`
     } 
